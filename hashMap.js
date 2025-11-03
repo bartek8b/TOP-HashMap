@@ -1,3 +1,3 @@
-import murmur128 from 'murmur-128';
+import murmur32 from 'murmur-32';
 
-console.log(murmur128('warszawa'));
+class HashMap {}
