@@ -47,10 +47,10 @@ class HashMap {
 
     // If there is bucket
     const bucket = this.map[index];
-    for (let elem of bucket) {
-      if (elem[0] === key) {
-        elem[1] = value;
-        return elem;
+    for (let slot of bucket) {
+      if (slot[0] === key) {
+        slot[1] = value;
+        return slot;
       }
     }
 
@@ -68,12 +68,24 @@ class HashMap {
     const index = this.hash(key);
     const bucket = this.map[index];
     if (!bucket) return null;
-    
+
     for (let slot of bucket) {
       if (slot[0] === key) return slot[1];
     }
 
     return null;
+  }
+
+  has(key) {
+    const index = this.hash(key);
+    const bucket = this.map[index];
+    if (!bucket) return false;
+
+    for (let slot of bucket) {
+      if (slot[0] === key) return true;
+    }
+
+    return false;
   }
 }
 
