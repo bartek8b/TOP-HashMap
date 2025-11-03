@@ -58,6 +58,11 @@ class HashMap {
     bucket.push([key, value]);
     return [key, value];
   }
+
+  clear() {
+    this.map = new Array(this.capacity);
+    this.usedBuckets = 0;
+  }
 }
 
 const test = new HashMap();
