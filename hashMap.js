@@ -40,7 +40,7 @@ class HashMap {
       this.usedBuckets++;
       if (this.usedBuckets >= this.capacity * this.loadFactor) {
         this.extend(this.map);
-        console.log('The map was extended');
+        console.log(`The map was extended to the capacity of ${this.capacity}`);
       }
       return [key, value];
     }
