@@ -104,11 +104,21 @@ class HashMap {
         slot[0] = bucket[bucket.length - 1][0];
         slot[1] = bucket[bucket.length - 1][1];
         bucket.pop();
-        this.usedBuckets--;
         return true;
       }
     }
     return false;
+  }
+
+  length() {
+    let mapLength = 0;
+
+    for (let bucket of this.map) {
+      if (!bucket) continue;
+      mapLength += bucket.length;
+    }
+
+    return mapLength;
   }
 }
 
