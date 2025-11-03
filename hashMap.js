@@ -24,8 +24,8 @@ class HashMap {
 
     for (let bucket of input) {
       if (!bucket) continue;
-      for (let item of bucket) {
-        this.set(item[0], item[1]);
+      for (let slot of bucket) {
+        this.set(slot[0], slot[1]);
       }
     }
     return this.map;
@@ -62,6 +62,18 @@ class HashMap {
   clear() {
     this.map = new Array(this.capacity);
     this.usedBuckets = 0;
+  }
+
+  get(key) {
+    const index = this.hash(key);
+    const bucket = this.map[index];
+    if (!bucket) return null;
+    
+    for (let slot of bucket) {
+      if (slot[0] === key) return slot[1];
+    }
+
+    return null;
   }
 }
 
