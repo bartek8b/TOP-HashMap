@@ -120,6 +120,19 @@ class HashMap {
 
     return mapLength;
   }
+
+  keys() {
+    let mapKeys = [];
+
+    for (let bucket of this.map) {
+      if (!bucket) continue;
+      for (let slot of bucket) {
+        mapKeys.push(slot[0]);
+      }
+    }
+
+    return mapKeys;
+  }
 }
 
 const test = new HashMap();
