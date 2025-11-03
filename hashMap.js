@@ -87,6 +87,29 @@ class HashMap {
 
     return false;
   }
+
+  remove(key) {
+    const index = this.hash(key);
+    const bucket = this.map[index];
+    if (!bucket) return false;
+
+    for (let slot of bucket) {
+      if (!slot) continue;
+      if (slot[0] === key) {
+        if (bucket.length === 1) {
+          this.map[index] = undefined;
+          this.usedBuckets--;
+          return true;
+        }
+        slot[0] = bucket[bucket.length - 1][0];
+        slot[1] = bucket[bucket.length - 1][1];
+        bucket.pop();
+        this.usedBuckets--;
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 const test = new HashMap();
