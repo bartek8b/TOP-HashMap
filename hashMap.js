@@ -1,4 +1,4 @@
-class HashMap {
+export class HashMap {
   constructor(capacity = 16, loadFactor = 0.75) {
     this.capacity = capacity;
     this.loadFactor = loadFactor;
@@ -159,8 +159,3 @@ class HashMap {
     return mapEntries;
   }
 }
-
-const test = new HashMap();
-
-test.set('apple', 'red');
-console.log(test);
