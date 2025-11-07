@@ -152,7 +152,7 @@ export class HashMap {
     for (let bucket of this.map) {
       if (!bucket) continue;
       for (let slot of bucket) {
-        mapEntries.push([slot[0], slot[1]]);
+        mapEntries.push(slot);
       }
     }
 
